@@ -14,7 +14,7 @@ body {
     text-align: center;
     margin: 50px 0 40px;
     color: #3e2723;
-    letter-spacing: -1px;
+    letter-spacing: 0px;
     white-space:normal;
     font-family:'Lora',serif;
 }
