@@ -21,7 +21,6 @@ body {
     letter-spacing: 0px;
     white-space:normal;
     font-family:'Lora',serif;
-    padding: 0 12px;
 }
 .homes-container {
     display: grid;
