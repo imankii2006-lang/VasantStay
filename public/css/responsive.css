@@ -228,10 +228,12 @@
         
 
         .welcome-text{
-            font-size:40px !important;
+            font-size:32px !important;
             line-height:1.2 !important;
-            text-align:center!important;
-            padding:0 10px!important;
+            text-align:center;
+            padding:0 12px!important;
+            word-break: break-word;
+            overflow-wrap: break-word;
 
         }
         /* 1. Container ko 2 columns mein divide karein */
