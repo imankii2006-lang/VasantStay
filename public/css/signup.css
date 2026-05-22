@@ -343,3 +343,48 @@ body {
     font-size: 12px;
   }
 }
+/* FINAL MOBILE FIX */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.main-login-area {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 550px;
+}
+
+/* IMPORTANT */
+input,
+button,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/* MOBILE FIX */
+@media screen and (max-width: 768px) {
+
+  .input-group-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
