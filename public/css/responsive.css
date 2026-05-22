@@ -304,7 +304,7 @@
         .overlay p {
             display: none !important; /* Mobile par extra text hata dein space bachane ke liye */
         }
-
+    }
 
       /* --- Final Mobile Responsive Fix --- */
 /* --- Professional Real App Mobile Layout Fix --- */
@@ -458,5 +458,5 @@
             margin-top: 10px !important;
         }
     }
-  }
+  
   
