@@ -223,7 +223,7 @@
             font-size: 14px !important;
         }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
         /* 1. Container ko 2 columns mein divide karein */
         .homes-container {
             display: grid !important;
@@ -298,7 +298,7 @@
 
       /* --- Final Mobile Responsive Fix --- */
 /* --- Professional Real App Mobile Layout Fix --- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     /* Main Container: Space aur clarity ke liye padding */
     .booking-meta-box {
       display: flex !important;
