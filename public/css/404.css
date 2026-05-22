@@ -1,0 +1,52 @@
+
+
+/* 404 Content Styling */
+.not-found-container {
+    text-align: center;
+    background-color: #ffffff;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.oops-title {
+    color: #d32f2f;
+    font-size: 100px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+}
+
+.oops-subtitle {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.error-dog-img {
+    width: 350px; /* Perfect size for desktop */
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.back-home-btn {
+    display: inline-block;
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.back-home-btn:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}

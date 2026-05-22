@@ -1,0 +1,47 @@
+
+•⁠  ⁠{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* Main Success Box Styling */
+.success-container {
+  margin-top: 80px; /* Header se niche lane ke liye */
+  padding: 20px;
+}
+
+.success-title {
+  color: #ff385c; /* Red Heading */
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.success-msg {
+  color: #484848;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Return to Home Button */
+.btn-return {
+  display: inline-block;
+  background-color: #ff385c;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-return:hover {
+  background-color: #e31c5f;
+  transform: scale(1.05);
+}

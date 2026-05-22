@@ -1,0 +1,85 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/signup.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+
+<div class="main-login-area">
+        <div class="login-card">
+            <h2>Create Your Account</h2>
+            
+            <form action="/SignUp" method="POST">
+                <% if (typeof errors !== 'undefined' && errors && errors.length > 0) { %>
+                    <div class="error-container">
+                        <div class="error-header">
+                            <i class="ri-error-warning-line"></i> Error!
+                        </div>
+                        <ul class="error-list">
+                            <% errors.forEach(error => { %>
+                                <li><%= error %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+                <div class="input-group-row">
+                    <div class="input-field">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" placeholder="John" 
+                        value="<%= oldInput.firstName ? oldInput.firstName: '' %>"required/>
+                    </div>
+                    <div class="input-field">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" placeholder="Doe"
+                        value="<%= oldInput.lastName ? oldInput.lastName: '' %>"/>
+                    </div>
+                </div>
+    
+                <div class="input-field">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="your.email@example.com"value="<%= oldInput.email ? oldInput.email: '' %>" required/>
+                </div>
+    
+                <div class="input-field">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter Your Password" required/>
+                </div>
+    
+                <div class="input-field">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm-password" placeholder="Confirm Your Password" required/>
+                </div>
+                
+                <div class="User-type-section">
+                    <p>I want to register as:</p>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="UserType" value="guest"
+                            <%= oldInput.UserType === 'guest' ? 'checked' : '' %>/>
+                            <span>Guest</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="UserType" value="host"
+                            <%= oldInput.UserType === 'host' ? 'checked' : '' %>/>
+                           
+                            <span>Host</span>
+                        </label>
+                    </div>
+                </div>
+    
+                <div class="terms-section">
+                    <input type="checkbox" name="terms" id="terms" required/>
+                    <label for="terms">I agree to the terms and conditions</label>
+                </div>
+                
+                <button type="submit" class="register-btn">Register &rarr;</button>
+                
+                <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>

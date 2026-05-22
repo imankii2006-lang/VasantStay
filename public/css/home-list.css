@@ -1,0 +1,189 @@
+
+/* --- 1. Global & Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+body {
+    background-color: #F9F7F2;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+}
+
+.welcome-text {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin: 50px 0 40px;
+    color: #3e2723;
+    letter-spacing: -1px;
+    white-space:nowrap;
+    font-family:'Lora',serif;
+}
+
+/* --- 2. Container & Card --- */
+.homes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 0 5% 100px;
+}
+
+.home-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.home-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.home-card:hover .image-container img {
+    transform: scale(1.1);
+}
+
+/* --- 3. ❤️ HEART ICON (WISHLIST) --- */
+.wishlist-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.heart-btn {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.heart-btn i {
+    font-size: 18px;
+    color: #4b5563; /* Khali heart color */
+    transition: all 0.3s ease;
+}
+
+.heart-btn:hover {
+    transform: scale(1.15);
+    background: white !important;
+}
+
+.heart-btn:hover i {
+    color: #ff385c; /* Hover par Airbnb Pink */
+}
+
+/* Jab favourite active ho (Optional: If you add 'active' class via JS) */
+.heart-btn.active i {
+    color: #ff385c !important;
+    font-weight: 900;
+}
+
+/* --- 4. DETAILS SECTION --- */
+.home-details {
+    padding: 24px;
+}
+
+.house-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.location {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+}
+
+.price-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+.rating {
+    background: #fffbeb;
+    color: #b45309;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* --- 5. DETAILS BUTTON (BEST SIZE) --- */
+.book-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    background: #008489 !important; /* Wahi Teal Green */
+    color: white !important;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.book-btn:hover {
+    background: #00666a !important;
+    box-shadow: 0 8px 20px rgba(0, 132, 137, 0.25);
+}
+
+/* --- 6. OVERLAYS & BADGE --- */
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px; /* Heart right mein hai, toh badge left mein classy lagega */
+    background: #ff385c;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 5;
+}

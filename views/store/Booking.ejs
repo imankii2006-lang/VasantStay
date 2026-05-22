@@ -1,0 +1,243 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/Booking.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<%- include('../partials/nav') %>
+
+<main class="bookings-page">
+  <h3 class="page-title">My Bookings</h3>
+
+  <div class="bookings-container">
+    <% bookings.forEach(bookedhome => { %>
+      <div class="booking-card">
+        
+        <div class="card-header">
+          <div class="header-left">
+            <img src="<%= bookedhome.homeId.photo %>" class="property-thumb" alt="">
+            <div class="property-info">
+              <h3><%= bookedhome.homeId.housename %></h3>
+              <p><i class="fa-solid fa-location-dot location-logo"></i> <%= bookedhome.homeId.location %></p>
+
+              
+              <div class="booking-meta-box">
+                <% if (bookedhome.status !== 'Cancelled') { %>
+                <div class="meta-item price-item">
+                  <b>Rs <%= bookedhome.homeId.price %></b> / night 
+                </div>
+                
+                <div class="meta-item rating-item">
+                  <i class="fa-solid fa-star star-icon"></i> 
+                  <%= bookedhome.avgRating || "New" %>
+                </div>
+                
+                <div class="meta-item stay-item">
+                  <i class="fa-solid fa-calendar-days calendar-icon"></i>
+                  STAY: 
+                  <span class="stay-dates">
+                    <%= new Date(bookedhome.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %> - 
+                    <%= new Date(bookedhome.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %>
+                  </span>
+                </div>
+   <%}else {%>
+    <div class="meta-item stay-item">
+      <i class="fa-solid fa-calendar-days calendar-icon"></i>
+      STAY: 
+      <span class="stay-dates <%= bookedhome.status === 'Cancelled' ? 'strike-text' : '' %>">
+          <%= new Date(bookedhome.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %> - 
+          <%= new Date(bookedhome.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %>
+      </span>
+  </div>
+
+
+
+
+
+
+    <%}%>
+
+              </div>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="status-group">
+              <% if (bookedhome.status !== 'Cancelled') { %>
+                <span class="status-badge success">Completed</span>
+                <%}  else {%>
+                  <span class="status-badge cancelled">Cancelled</span>
+                  <%}%>
+                <form action="/Cancel-Booking/<%=bookedhome._id%>" method="POST">
+                    <input type="hidden" name="homeId" value="<%=bookedhome.homeId._id%>">
+                    
+                    <% if (bookedhome.status !== 'Cancelled') { %>
+                    <button type="submit" class="text-cancel-btn">Cancel Booking</button>
+                    <%}%>
+                </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <div class="add-review-section">
+            <% if (bookedhome.status !== 'Cancelled') { %>
+            <% if (bookedhome.isReviewed) { %>
+              <div class="thank-you-container">
+                  <div class="success-animation">
+                      <i class="fa-solid fa-circle-check"></i>
+                  </div>
+                  <h4>Thank You for Your Review!</h4>
+                  <p>Your feedback helps us make our services better for everyone.</p>
+                  <div class="reviewed-badge">
+                      <i class="fa-solid fa-shield-heart"></i> Feedback Verified
+                  </div>
+              </div>
+            <% } else { %>
+              <% const today = new Date();
+              const checkout = new Date(bookedhome.checkOut)
+
+              today.setHours(0,0,0,0);
+              checkout.setHours(0,0,0,0);
+              %>
+              <%if(today > checkout){%>
+                <!-- ✅ REVIEW FORM SHOW -->
+              <h4>How was your stay?</h4>
+              <p>We'd love to hear about your experience.</p>
+
+              <form action="/review" method="POST" class="styled-form">
+                <input type="hidden" name="homeId" value="<%= bookedhome.homeId._id %>">
+                <input type="hidden" name="comment" value="<%= bookedhome.reviews.comment %>">
+                <input type="hidden" name="rating" required>
+           <h5>Rate your stay</h5>
+                <div class="star-rating-modern">
+                  <span onclick="rate(this,1)">★</span>
+                  <span onclick="rate(this,2)">★</span>
+                  <span onclick="rate(this,3)">★</span>
+                  <span onclick="rate(this,4)">★</span>
+                  <span onclick="rate(this,5)">★</span>
+                </div>
+                <h5>Write a review</h5>
+                <textarea name="comment" placeholder="Share your experience..." required></textarea>
+          
+                <div class="ai-analysis-box">
+                   <div class="ai-icon">🤖</div>
+                   <div class="ai-text">
+                     <strong>AI Sentiment Analysis</strong>
+                     <p>Automatic detection active</p>
+                   </div>
+                   <span class="ai-status-pill">Pending</span>
+                </div>
+          
+                <button type="submit" class="main-submit-btn">Submit Review</button>
+              </form>
+              <%} else {%>
+                <!-- ✅ THANK YOU UI SHOW -->
+  <div class="thankyou-card">
+
+    <div class="success-icon">
+      <i class="fa-solid fa-check"></i>
+    </div>
+
+    <h2>Thank You for Booking!</h2>
+
+    <p class="main-text">
+      We are excited to have you stay with us.<br>
+      Your booking is confirmed.
+    </p>
+
+    <div class="info-box">
+      <i class="fa-solid fa-circle-info"></i>
+      <p>Reviews will be open after your check-out date.</p>
+    </div>
+
+  </div>
+            <% } %>
+            <% } %>
+            <%} else {%>
+              <div class="cancel-card">
+                <div class="cancel-icon-wrapper">
+                    <i class="fa-solid fa-ban cancel-icon"></i>
+                </div>
+                <h2 class="cancel-title">Booking Cancelled Successfully.</h2>
+                <p class="cancel-text">
+                    We have processed your cancellation. Any refund due will be sent to your original payment method in 5-7 business days.
+                </p>
+            </div>
+            
+            <div class="refund-info-box">
+                <div class="info-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="refund-details">
+                    <p><strong>Refund Status: Processing.</strong></p>
+                    <p class="refund-subtext">Total Paid: Rs <%=bookedhome.homeId.price%>. Refund Due: Rs 1000 (after cancellation fee).</p>
+                </div>
+            </div>
+            <%}%>
+          </div>
+
+          <div class="guest-reviews-section">
+            <h4>Recent Reviews (<%= bookedhome.reviews.length %>)</h4>
+            <div class="reviews-scroll-area">
+              <% if(bookedhome.reviews.length > 0) { %>
+                <% bookedhome.reviews.forEach(r => { %>
+                  <div class="review-card-item">
+                    <div class="review-header">
+                      <div class="user-info">
+                        <div class="avatar-circle">
+                            <% if (r.user && r.user.firstName) { %>
+                                <%= r.user.firstName.charAt(0).toUpperCase() %><%= r.user.lastName ? r.user.lastName.charAt(0).toUpperCase() : '' %>
+                            <% } else { %>
+                                U
+                            <% } %>
+                        </div>
+                        
+                        <div class="user-details">
+                            <span class="user-name">
+                                <% if (r.user && r.user.firstName) { %>
+                                    <%= r.user.firstName %> <%= r.user.lastName || '' %>
+                                <% } else { %>
+                                    Anonymous User
+                                <% } %>
+                            </span>
+                            <span class="review-time">Recently</span>
+                        </div>
+                    </div>
+                        <div class="review-rating-stars">
+                            <span class="stars-gold">
+                                <% for(let i=0; i<5; i++) { %>
+                                    <%= i < r.rating ? '★' : '☆' %>
+                                <% } %>
+                            </span>
+                            <span class="rating-val"><%= r.rating %>/5</span>
+                        </div>
+                    </div>
+                    
+                    <p class="review-text">"<%= r.comment %>"</p>
+                    
+                    <div class="sentiment-badge <%= r.sentiment ? r.sentiment.toLowerCase() : 'neutral' %>">
+                        <i class="fa-regular fa-face-smile"></i>
+                        AI Sentiment: <%= r.sentiment || 'Neutral' %>
+                    </div>
+                </div>
+                <% }) %>
+              <% } else { %>
+                <div class="empty-reviews">
+                    <i class="fa-solid fa-comments"></i>
+                    <p>No reviews yet.</p>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+    
+  </div>
+  <script src="/js/booking.js"></script>
+  <script src="/js/script.js"></script>
+</main>
+</body>
+</html>

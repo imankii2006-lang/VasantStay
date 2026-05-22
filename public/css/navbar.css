@@ -1,0 +1,241 @@
+
+/* Google Font Import (Serif Font) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* Logo overall link spacing */
+.vasant-stay-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif; /* Yahan Serif font must hai, original look ke liye */
+}
+
+/* The 'V' Logo Icon logic (as previously discussed for overlay) */
+.logo-box {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-v {
+  font-size: 32px;
+  font-weight: bold;
+  color: #552e05; /* Dark brown shade for V */
+  line-height: 1;
+}
+
+.logo-accent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  border-right: 3px solid #c5a059; /* Gold color */
+  border-bottom: 3px solid #c5a059;
+}
+
+/* Text Styling */
+.logo-text {
+  font-family:'Lora',serif;
+  font-size:28px;
+
+  font-weight:600;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  color: #7b3019;
+  margin: 0;
+}
+
+.logo-text span {
+  
+  font-family:'Lora',serif;
+  font-size:28px;
+
+  font-weight:600;
+  white-space: nowrap;
+  letter-spacing: 0.5px; /* 'Stay' part is slightly thicker */
+  color: #0e7993; /* Make 'Stay' slightly darker or use your teal button color */
+}
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Container */
+.top-navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 10px 20px; /* Padding thoda badhaya hai balance ke liye */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Nav Layout - Ise poori width di hai */
+.top-navbar nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* 1. Extreme Left: Airbnb Logo styling */
+.nav-item.logo:first-child {
+  color: #7b3019;
+  font-size: 24px;
+  margin-right: 30px; /* StayFinder ke kitne pass hona chahiye */
+}
+
+/* 2. StayFinder styling */
+.logo {
+  font-family: 'Lora', serif;
+  font-size: 26px;
+  color: #003366;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-right: 15px; /* Search bar ke pass lane ke liye kam margin */
+}
+
+/* 3. Search Form - Ise logo ke bilkul kareeb rakha hai */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Magic Line: Iske baad ke saare elements right mein chale jayenge */
+  margin-right: auto; 
+}
+
+.search-input {
+  padding: 10px 17px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  width: 300px; /* Thoda width badhai hai taaki header bhara lage */
+  outline: none;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.search-input:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 5px rgba(255, 56, 92, 0.3);
+}
+.search-form button {
+  background: #2d3436;
+  color: white;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.search-form button:hover {
+  background: #7b3019;
+  transform: scale(1.05);
+}
+
+
+/* 4. Right section - Isme Homes-List, Bookings etc. hain */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 55px;          /* Buttons ke beech ka gap */
+  margin-left: auto;   /* <--- Ye line buttons ko right corner par bhej degi */
+  padding-right: 20px; /* Corner se thodi doori banaye rakhne ke liye */
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #413d3d;
+  font-size: 15.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background: #f7f7f7;
+  color: #7b3019;
+}
+
+/* 5. Extreme Right: Logout Button */
+.logout-btn {
+  background: #7b3019;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+  margin-left: 10px; /* Baaki link se thoda door */
+}
+
+.logout-btn:hover {
+  background:#7b3019 ;
+  transform: translateY(-1px);
+}
+
+.menu-icon{
+  display:none;
+}
+/* Sign-Up Button */
+.nav-right a[href="/SignUp"] {
+  background: #d63031;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Sign-Up Hover */
+.nav-right a[href="/SignUp"]:hover {
+  background: #cc5151;
+  transform: scale(1.05);
+}
+
+/* Login Button */
+#login-btn {
+  border: 1px solid #ddd;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #333;
+  transition: 0.3s;
+}
+
+/* Login Hover */
+#login-btn:hover {
+  background: #f7f7f7;
+  border-color: #bbb;
+  transform: scale(1.05);
+}
+
+.nav-item.active{
+  color:#2d3436;
+  font-weight:600;
+  border-bottom:3px solid #c5a059;
+}
+.nav-item.active i {
+  color:#7b3019;
+}

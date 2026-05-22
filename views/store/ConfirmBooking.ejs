@@ -1,0 +1,176 @@
+<%- include('../partials/head') %>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/ConfirmBooking.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+
+    <main >
+  
+      <div class="booking-container">
+        
+        <div class="booking-header">
+          <h1>Your next adventure starts here</h1>
+          <p class="header-subtitle">Review your stay details and complete your payment to secure this home.</p>
+        </div>
+        
+      
+        <div class="main-content">
+          <div class="left-section">
+            <img src="<%= home.photo %>" class="property-image">
+            
+            <p class="location-tag"><i class="fa-solid fa-location-dot"></i> <%= home.location %></p>
+            
+            <div class="property-features">
+              <div class="feature-item"><i class="fa-solid fa-house"></i> Entire Home</div>
+              <div class="feature-item"><i class="fa-solid fa-user-group"></i> Perfect for Family & Couples</div>
+            </div>
+      
+            <div class="house-rules-box">
+              <h3>House Rules</h3>
+              <ul>
+                <li><i class="fa-regular fa-clock"></i> Check-in: 11:00 AM - 1:00 PM</li>
+                <li><i class="fa-solid fa-ban-smoking"></i> No smoking inside the rooms</li>
+              </ul>
+            </div>
+          </div>
+          <div class="booking-panel">
+
+            <!-- 🔍 Check Availability Box -->
+            <div class="availability-card">
+              <h3>Check Availability</h3>
+              <form action="/availability" method="Get">
+          
+                <div class="input-group">
+                  <label>Check-in</label>
+                  <input 
+                      type="date" 
+                      name="checkIn" 
+                      id="checkIn" 
+                      class="form-control" 
+                      value="<%= (typeof availability !== 'undefined' && availability !== null) ? checkIn : '' %>"
+                      required>
+              </div>
+              
+              <div class="input-group">
+                  <label>Check-out</label>
+                  <input 
+                      type="date" 
+                      name="checkOut" 
+                      id="checkOut" 
+                      class="form-control" 
+                      value="<%= (typeof availability !== 'undefined' && availability !== null) ? checkOut : '' %>"
+                      required>
+              </div>
+          
+              <div class="input-group">
+                <label>Guests</label>
+                <select name="guests" class="form-control">
+                    <option value="1" <%= (locals.guests == '1') ? 'selected' : '' %>>1 Guest</option>
+                    
+                    <option value="2" <%= (locals.guests == '2') ? 'selected' : '' %>>2 Guests</option>
+                    
+                    <option value="3" <%= (locals.guests == '3') ? 'selected' : '' %>>3 Guests</option>
+                    
+                    <option value="4" <%= (locals.guests == '4') ? 'selected' : '' %>>4 Guests</option>
+                </select>
+            </div>
+              <% if (typeof availability !== 'undefined' && availability !== null) { %>
+    
+                <% if (availability === true) { %>
+                    <p class="status success" style="display: block !important; color: green; font-weight: bold;">
+                        ✔ Great! Your selected dates are available
+                    </p>
+                <% } else if(availability === false){ %>
+                    <p class="status error" style="display: block !important; color: red; font-weight: bold;">
+                      ✘  Sorry! These dates are not available
+                    </p>
+                <% } %>
+            
+            <% } %>
+             
+               
+              <input type="hidden" name="homeId" value="<%= home._id%>">
+          
+              <button type="submit" class="check-btn">Check Availability</button>
+              </div>
+             </form>
+             <% if (typeof availability !== 'undefined' && availability !== null) { %>
+    
+              <% if (availability === true) { %>
+          <div class="price-sidebar">
+            <h3 class="sidebar-title">Price Details</h3>
+            <div class="price-item">
+              <span>₹<%= home.price %> x <%= totalNights %> night</span>
+              <span>₹<%= home.price*totalNights %></span>
+            </div>
+            <div class="price-item">
+              <span>Service fee (<%=5*totalNights%>%)</span>
+              <span>₹<%= (home.price*totalNights * 0.05).toFixed(0) %></span>
+            </div>
+            <div class="price-item discount">
+              <span>First booking discount</span>
+              <span>- ₹100</span>
+            </div>
+            <div class="total-box">
+              <span>Total (INR)</span>
+              <span>₹<%= (home.price*totalNights * 1.05 - 100).toFixed(0) %></span>
+            </div>
+            <button type="button" class="confirm-btn">Proceed to payment</button>
+            <div class="secure-payment">
+              <i class="fa-solid fa-shield-halved"></i> Safe and Secure Payment
+            </div>
+          </div>
+          <script>
+            window.APP_DATA = {
+              homeId: "<%= home._id %>",
+              razorpayKey: "<%= process.env.RAZORPAY_KEY_ID %>",
+              totalNights:"<%=totalNights %>",
+              amount: "<%=(home.price * totalNights * 1.05 - 100).toFixed(0) %>"
+            };
+          </script>
+          
+         <% } %>
+        <% } %>
+</div>
+      </div>
+     
+     
+
+  <!-- External scripts -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="/js/payment.js"></script>
+  <script>
+    // 1. Aaj ki date nikalna (YYYY-MM-DD format mein)
+    const today = new Date().toISOString().split('T')[0];
+    
+    const checkInInput = document.getElementById('checkIn');
+    const checkOutInput = document.getElementById('checkOut');
+  
+    // 2. Check-in mein aaj se pehle ki date disable karna
+    checkInInput.setAttribute('min', today);
+  
+    // 3. Jab Check-in select ho, toh Check-out ki min date wahi set kar dena
+    checkInInput.addEventListener('change', function() {
+        if (this.value) {
+            checkOutInput.setAttribute('min', this.value);
+            
+            // Agar Check-out pehle se selected hai aur wo Check-in se purana ho gaya, toh usey reset karein
+            if (checkOutInput.value && checkOutInput.value < this.value) {
+                checkOutInput.value = '';
+            }
+        }
+    });
+  
+    // 4. Check-out mein bhi minimum aaj ki date honi chahiye
+    checkOutInput.setAttribute('min', today);
+  </script>
+</body>
+<script src="/js/script.js"></script>
+</html>

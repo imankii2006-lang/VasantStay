@@ -1,0 +1,32 @@
+<%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/add-home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <%- include('../partials/nav') %>
+  
+<h1 class="form-title"><%= editing ? "Edit" : "Register" %> Your Home on VasantStay</h1>
+<main>
+    <form action="/host/<%= editing ? "edit-home" : "add-home"%>" method="POST" 
+      enctype="multipart/form-data">
+
+      <input type="hidden" name="id" value="<%= editing? home._id:''%>"/>
+      
+    <input type="text" name="housename" value="<%= editing? home.housename:''%>" placeholder = "Enter the name of yourhouse"/>
+
+    <input type="text" name="price" value="<%= editing? home.price:''%>" placeholder = "Price Per Night"/>
+
+    <input type="text" name="location" value="<%= editing? home.location:''%>"  placeholder = "Location"/>
+
+    <input type="text" name="rating"  value="<%= editing? home.rating:''%>" placeholder = "Rating"/>
+
+    <input type="file" name="photo" class="my-custom-input" multiple accept="image/jpg,image/jpeg,image/png">
+
+    <input type="submit" value="<%= editing ? "Update Home" : "Add Home"%>"/>
+    </form>
+  </main>
+  <script src="/js/script.js"></script>
+</body>
+</html>

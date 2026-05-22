@@ -1,0 +1,123 @@
+
+/* Poore page ka setup */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e0eafc 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Navbar upar rahega, baaki content niche */
+}
+
+/* Header/Nav ka dhyan rakhte hue spacing */
+.top-navbar {
+  z-index: 10;
+  /* Aapki existing nav styling yahan automatically apply hogi */
+}
+
+/* Form ko center mein lane wala main container */
+.main-login-area {
+  flex: 1; /* Bachi hui poori screen cover karega */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center;    /* Vertically center */
+  padding: 20px;
+}
+
+/* Login Card Styling */
+.login-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.7);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card h2 {
+  text-align: center;
+  color: #1e272e;
+  margin-bottom: 10px;
+}
+
+/* Inputs */
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.login-card input[type="text"]:focus,
+.login-card input[type="password"]:focus {
+  border-color: #923c1f;
+}
+
+/* Submit Button */
+.login-card input[type="submit"] {
+  background: #2d3436;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-card input[type="submit"]:hover {
+  background: #6f7d82;
+}
+
+/* Sign up text */
+.footer-text {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.footer-text a {
+  color: #0984e3;
+  text-decoration: none;
+  font-weight: 600;
+}
+.error-container {
+  background-color: #fff8f6;
+  border: 1px solid #ff385c;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  font-family: 'Circular', -apple-system, system-ui, Roboto, sans-serif;
+}
+
+.error-header {
+  color: #c13515;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.error-list li {
+  color: #484848;
+  font-size: 13px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+

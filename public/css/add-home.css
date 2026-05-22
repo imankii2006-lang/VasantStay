@@ -1,0 +1,106 @@
+•⁠ 
+
+ ⁠{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f7f7;
+}
+
+
+/* Poore input box ki styling */
+.my-custom-input {
+  display: block;
+  width: 100%;
+  padding: 8px; /* Baaki inputs ke hisaab se adjust karein */
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* Jo "Choose Files" likha hua button hai, uski styling */
+.my-custom-input::file-selector-button {
+  background-color: #f0f0f0; /* Button ka color */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button par hover effect */
+.my-custom-input::file-selector-button:hover {
+  background-color: #e0e0e0;
+  border-color: #ff385c; /* Airbnb wala red accent */
+}
+
+
+
+/* Heading jo red bar ke neeche aayegi */
+.form-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #222;
+}
+
+/* Form Container */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+form {
+    width: 100%;
+    max-width: 450px; /* Sir jaisa width */
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #ff385c;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #e31c5f;
+}
+
+
+•⁠  ⁠{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  

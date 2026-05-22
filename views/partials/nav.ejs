@@ -1,0 +1,61 @@
+<header class="top-navbar">
+  <nav> <div class="nav-left">
+    <a href="/" class="nav-item logo vasant-stay-logo">
+      <div class="logo-box">
+        <span class="logo-v">V</span>
+        <div class="logo-accent"></div>
+      </div>
+      
+      <h1 class="logo-text">Vasant<span>Stay</span></h1>
+    </a>
+        </div>
+        <div class="menu-icon" id="menuToggle">
+          <i class="fa-solid fa-bars"></i>
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+        <% if(isLoggedIn) { %>
+          <%if(typeof hideSearch === 'undefined' || !hideSearch){%>
+
+         
+
+          <form action="/search" method="GET" class="search-form">
+          <input type="text" name="q" class="search-input" placeholder="Find your next gateway...">
+          <button type="submit">Search</button>
+      </form>
+      <%}%>
+     <%}%>
+      <div class="nav-right" id="navLinks">
+    
+        <% if (isLoggedIn) { %>
+          <%if(user && user.UserType === 'guest'){%>
+          <a href="/homes" class="nav-item <%= currentPage === 'home' ? 'active' : '' %>">
+            <i class="fa-solid fa-house"></i> Homes-List
+          </a>
+          <a href="/favourites" class="nav-item <%= currentPage === 'favourite-list' ? 'active' : '' %>">
+            <i class="fa-solid fa-heart"></i> Wishlist
+          </a>
+          <a href="/bookings" class="nav-item <%= currentPage === 'bookings' ? 'active' : '' %>">
+            <i class="fa-solid fa-calendar-check"></i> Bookings
+          </a>
+          <%}else{%>
+            <a href="/host/add-home" class="nav-item <%= currentPage === 'add-home' ? 'active' : '' %>">
+              <i class="fa-solid fa-plus-circle"></i> Add Home
+            </a>
+            <a href="/host/host-home-list" class="nav-item <%= currentPage === 'host-homes' ? 'active' : '' %>">
+              <i class="fa-solid fa-address-card"></i> Host Homes
+            </a>
+          <% } %>
+            <form action="/logout" method="POST" class="nav-item-form">
+                <button type="submit" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+            </form>
+    
+        <% } else { %>
+          <a href="/SignUp" class="nav-item <%= currentPage === 'Sign-Up' ? 'active' : '' %>">Sign-Up</a>
+          <a href="/login" class="nav-item <%= currentPage === 'login' ? 'active' : '' %>" id="login-btn">Login</a>
+        <% } %>
+    
+    </div> 
+  </nav>
+</header>

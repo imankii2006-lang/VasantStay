@@ -1,0 +1,155 @@
+
+.error-container {
+  background-color: #fff8f6;
+  border: 1px solid #ff385c;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  font-family: 'Circular', -apple-system, system-ui, Roboto, sans-serif;
+}
+
+.error-header {
+  color: #c13515;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.error-list li {
+  color: #484848;
+  font-size: 13px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+
+
+
+/* Container Background from your photo */
+.main-login-area {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%); /* Wahi vibrant red */
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* White Card Style */
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 550px; /* Thoda wide card tutorial ki tarah */
+}
+
+.login-card h2 {
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 28px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Input Row Logic (Name fields side-by-side) */
+.input-group-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex: 1; /* Equal width for names */
+}
+
+.input-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #636e72;
+}
+
+.input-field input {
+  padding: 12px 15px;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: #0984e3;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(255, 56, 92, 0.2);
+}
+
+/* Radio & Checkbox Styling */
+.User-type-section p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.terms-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* Register Button */
+.register-btn {
+  width: 100%;
+  background-color: #2d3436;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #657579;
+}
+
+/* Footer Link */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.login-link a {
+  color: #0984e3;
+  text-decoration: none;
+  font-weight: 600;
+}

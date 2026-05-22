@@ -1,0 +1,103 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/home-detail.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <%- include('../partials/nav') %>
+  
+  <main class="detail-container">
+    <div class="home-main-card">
+        <div class="hero-image-wrapper">
+            <img src="<%= home.photo %>" alt="<%= home.housename %>" class="main-home-img">
+            <div class="rating-floating-badge">⭐ <%= home.avgRating || home.rating %></div>
+            <% if (!home.isReserved) { %>
+                <div class="wishlist-container">
+                  <form action="/favourites/<%= home._id %>" method="POST">
+                      <button type="submit" class="heart-btn">
+                          <% if (home.isFavourite) { %>
+                              <i class="fa-solid fa-heart" style="color: red;"></i>
+                          <% } else { %>
+                              <i class="fa-regular fa-heart"></i>
+                          <% } %>
+                      </button>
+                  </form>
+              </div>
+              <% } %>
+        </div>
+
+        <div class="home-info-content">
+            <div class="header-main">
+                <h1 class="house-title"><%= home.housename %></h1>
+                <p class="location-subtext">📍 <%= home.location %>, India</p>
+            </div>
+            
+            <div class="divider"></div>
+
+            <div class="info-callout-box">
+                <div class="blue-sidebar"></div>
+                <div class="info-body">
+                    <h3 class="info-heading">About this property</h3>
+                    <p class="experience-text">
+                        Experience a <span class="highlight-text">luxurious stay</span> at 
+                        <span class="property-name"><%= home.housename %></span>. 
+                        This property offers premium comfort and modern amenities for your perfect getaway.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="booking-actions-row">
+                <form action="/ConfirmBooking/<%= home._id %>" class="flex-grow">
+                    <button type="submit" class="btn-main-action confirm">Confirm Booking Now</button>
+                </form>
+                
+               
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-layout">
+        <h2 class="reviews-heading">Verified Guest Reviews (<%= reviews.length %>)</h2>
+        
+        <div class="reviews-container">
+            <% if (reviews.length > 0) { %>
+                <div class="reviews-grid">
+                    <% reviews.forEach(r => { %>
+                        <div class="premium-review-card">
+                            <div class="review-user-row">
+                                <div class="avatar-initials">
+                                    <%= r.user.firstName.charAt(0) %><%= r.user.lastName ? r.user.lastName.charAt(0) : '' %>
+                                </div>
+                                <div class="user-meta-data">
+                                    <span class="user-fullname"><%= r.user.firstName %> <%= r.user.lastName %></span>
+                                    <span class="review-status">✓ Verified Stay</span>
+                                </div>
+                            </div>
+                            <div class="star-rating-row">
+                                <% for(let i=0; i<5; i++) { %>
+                                    <span class="star-icon <%= i < r.rating ? 'active' : '' %>">★</span>
+                                <% } %>
+                                <span class="rating-display-text">(<%= r.rating %>/5)</span>
+                            </div>
+                            <p class="guest-comment">"<%= r.comment %>"</p>
+                            <div class="sentiment-pill <%= r.sentiment %>">
+                                <span class="dot"></span> AI Sentiment: <%= r.sentiment %>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <div class="empty-reviews-state">
+                    <div class="empty-icon">🏠</div>
+                    <h3>No reviews yet</h3>
+                    <p>Is ghar ki nayi kahani likhne wale pehle mehman baniye. Aapka anubhav dusron ke liye prerak banega!</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</main>
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+  
+  <main>
+    <h1 class="welcome-text">Explore Our Exclusive Stays</h1>
+    
+    <div class="homes-container">
+      <% RegisteredHomes.forEach(home => { %>
+
+        <!-- 🔥 reserved class add -->
+        <div class="home-card <%= home.isReserved ? 'reserved' : '' %>">
+
+          <div class="image-container">
+            <img src="<%= home.photo %>" alt="<%= home.housename %>">
+
+            <!-- 🔴 Badge -->
+           
+
+            <!-- 🔥 Overlay -->
+           
+
+          </div>
+
+          <div class="home-details">
+            <h2 class="house-name"><%= home.housename %></h2>
+            <p class="location"><%= home.location %></p>
+
+            <div class="price-rating">
+              <span class="price">Rs<%= home.price %> / night</span>
+              <span class="rating">⭐<%= home.rating %></span>
+            </div>
+            
+           
+
+            <!-- 🔥 Button logic -->
+            
+              <% if(isLoggedIn){%>
+                <%if(user.UserType === 'guest'){%>
+
+              <a href="/homes/<%= home._id %>" class="book-btn" 
+                style="
+                  background-color: #4a90e2; 
+                  color: white; 
+                  padding: 8px 15px; 
+                  text-decoration: none; 
+                  border-radius: 5px; 
+                  display: inline-block; 
+                  width: 30%; 
+                  text-align: center;
+                  font-size: 14px;
+                  margin-right: 5px;
+                  vertical-align: middle;
+                ">
+               Book Now
+              </a>
+
+             
+              <% } %>
+            <% } %>
+
+          </div>
+        </div>
+
+      <% }) %>
+    </div>
+  </main>
+  <script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+/* =========================================
+   1. AAPKA ORIGINAL HEADER CSS (NO CHANGES)
+   ========================================= */
+
+
+
+/* =========================================
+   2. NAYE PAGE CONTENT KI CSS (AIRBNB LOOK)
+   ========================================= */
+
+/* =========================================
+   PAGE CONTENT STYLING (REFINED)
+   ========================================= */
+   .booking-panel {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* 🔍 Availability Card */
+  .availability-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  .availability-card h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .input-group {
+    margin-bottom: 12px;
+  }
+  
+  .input-group label {
+    font-size: 15px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus {
+    border-color: #ff385c;
+  }
+  
+  /* Button */
+  .check-btn {
+    width: 100%;
+    padding: 12px;
+    background: #040f5a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight:500;
+  }
+  
+  .check-btn:hover {
+    background: #3660db;
+  }
+  
+  /* General Message Container */
+.status {
+  padding: 12px 16px;
+  margin: 15px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid transparent;
+}
+
+/* Success Box (Green) */
+.status.success {
+  background-color: #f0fff4; /* Light Green background */
+  color: #22c55e;           /* Airbnb style green text */
+  border-color: #bbf7d0;    /* Soft green border */
+}
+
+/* Error Box (Red) */
+.status.error {
+  background-color: #fff5f5; /* Light Red background */
+  color: #ff385c;           /* Rausch red - Airbnb core color */
+  border-color: #fed7d7;    /* Soft red border */
+}
+
+/* Icon styling (Optional) */
+.status i {
+  font-size: 18px;
+}
+  
+   body {
+    background-color: #f7f7f7; /* Light grey background like Airbnb */
+  }
+  
+  .booking-container {
+    max-width: 1120px; /* Standard Airbnb width */
+    margin: 40px auto;
+    padding: 0 40px;
+  }
+  
+  .header-subtitle {
+    color: #717171 !important; /* Soft grey color */
+    font-size: 16px !important;  /* Chota aur readable size */
+    font-weight: 400;
+    margin-top: 8px;
+    max-width: 600px;           /* Taaki text puri screen par na faile */
+    line-height: 1.5;
+  }
+  
+  /* Heading ko bhi thoda refine kar dete hain alignment ke liye */
+  .booking-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #222;
+    letter-spacing: -0.5px;
+  }
+  
+  /* --- Layout Grid --- */
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px; /* Space between left and right */
+  }
+  
+  .left-section {
+    flex: 1.5;
+  }
+  
+  /* --- Property Image --- */
+  .property-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  
+  /* --- Info Section (Location, Title) --- */
+  .location-tag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #717171;
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
+  
+  /* --- Features (Entire Home, Family) --- */
+  .property-features {
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    padding: 25px 0;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #222;
+    font-weight: 400;
+  }
+  
+  .feature-item i {
+    font-size: 20px;
+    width: 25px;
+    color: #484848;
+  }
+  
+  /* --- House Rules --- */
+  .house-rules-box h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .house-rules-box ul {
+    list-style: none;
+  }
+  
+  .house-rules-box li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #484848;
+    font-size: 16px;
+  }
+  
+  /* --- Right Sidebar (Price Details) --- */
+  .price-sidebar {
+    flex: 1;
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+  }
+  
+  .sidebar-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .price-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 16px;
+  }
+  
+  .discount {
+    color: #108910;
+    font-weight: 500;
+  }
+  
+  .total-box {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .confirm-btn {
+    width: 100%;
+    background: linear-gradient(to right, #040f5a);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 24px;
+  }
+  
+  .secure-payment {
+    text-align: center;
+    font-size: 12px;
+    color: #717171;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }

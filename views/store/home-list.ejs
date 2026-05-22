@@ -1,0 +1,62 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/home-list.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+  
+  <main>
+    <h1 class="welcome-text">Here are our Registered Homes:</h1>
+    
+    <div class="homes-container">
+      <% RegisteredHomes.forEach(home => { %>
+
+        <div class="home-card <%= home.isReserved ? 'reserved' : '' %>">
+
+          <div class="image-container">
+            <img src="<%= home.photo %>" alt="<%= home.housename %>">
+           
+              <div class="wishlist-container">
+                <form action="/favourites/<%= home._id %>" method="POST">
+                    <button type="submit" class="heart-btn">
+                        <% if (home.isFavourite) { %>
+                            <i class="fa-solid fa-heart" style="color: red;"></i>
+                        <% } else { %>
+                            <i class="fa-regular fa-heart"></i>
+                        <% } %>
+                    </button>
+                </form>
+            </div>
+           
+
+          
+
+          
+          </div>
+
+          <div class="home-details">
+            <h2 class="house-name"><%= home.housename %></h2>
+            <p class="location">📍 <%= home.location %></p>
+          
+            <div class="price-rating">
+              <span class="price">Rs<%= home.price %> / night</span>
+              <span class="rating">⭐<%= home.rating %></span>
+            </div>
+            
+            <div class="button-group-container">
+               
+                  <a href="/homes/<%= home._id %>" class="book-btn">Details</a>
+                
+            </div>
+          </div>
+        </div>
+
+      <% }) %>
+    </div>
+  </main>
+  <script src="/js/script.js"></script>
+</body>
+</html>

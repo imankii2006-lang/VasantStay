@@ -1,0 +1,347 @@
+
+
+:root {
+  --primary-color: #ff385c;
+  --success-green: #248a3d;
+  --text-dark: #222222;
+  --text-gray: #717171;
+  --border-light: #dddddd;
+}
+
+.detail-container {
+  max-width: 1080px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Home Card Overhaul */
+.home-main-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  margin-bottom: 60px;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  height: 450px;
+}
+
+.main-home-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rating-floating-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: white;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.home-info-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.house-title { font-size: 2.2rem; margin-bottom: 5px; color: var(--text-dark); }
+.location-subtext { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 25px; }
+
+.divider { height: 1px; background: var(--border-light); margin: 20px 0; }
+
+.description-text { line-height: 1.6; color: #484848; font-size: 1.05rem; }
+
+/* Pricing & Buttons */
+.pricing-card {
+  margin-top: auto;
+  background: #f8f8f8;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #eee;
+}
+
+.price-bold { font-size: 1.8rem; font-weight: 800; color: var(--text-dark); }
+.night-text { color: var(--text-gray); }
+
+.action-buttons-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.btn-confirm-booking {
+  background-color: var(--success-green) !important;
+  color: white;
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s transform;
+}
+
+.btn-confirm-booking:hover { transform: scale(1.02); }
+
+/* Reviews Layout */
+.reviews-layout { margin-top: 40px; }
+.reviews-heading { font-size: 1.6rem; margin-bottom: 30px; font-weight: 700; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.premium-review-card {
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+  background: white;
+}
+
+/* Unique Empty State Styling */
+.empty-reviews-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fffafa;
+  border: 2px dashed #ffcad4;
+  border-radius: 20px;
+}
+
+.empty-icon { font-size: 3rem; margin-bottom: 15px; }
+.empty-reviews-state h3 { color: var(--text-dark); margin-bottom: 10px; }
+.empty-reviews-state p { color: var(--text-gray); max-width: 400px; margin: 0 auto; line-height: 1.5; }
+
+/* Avatar & Sentiment */
+.avatar-initials {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-weight: bold;
+}
+
+.sentiment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-top: 15px;
+}
+.sentiment-pill.neutral { background: #eef6ff; color: #007aff; }
+.sentiment-pill.positive { background: #e6fff0; color: #238636; }
+
+/* 1. Improved Text Styling & Colors */
+.info-callout-box {
+  background: #f4f9ff; /* Bahut halka blue background */
+  border: 1px solid #d9eaff;
+  border-radius: 16px;
+  display: flex;
+  margin: 25px 0;
+  overflow: hidden;
+}
+
+.blue-sidebar {
+  width: 6px;
+  background: #007bff; /* Deep Blue Accent Line */
+}
+
+.info-body {
+  padding: 18px 22px;
+}
+
+.info-heading {
+  font-size: 1.1rem;
+  color: #0056b3; /* Dark Blue Heading */
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.experience-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #3e4e5e; /* Premium Soft Charcoal color */
+  margin: 0;
+}
+
+.highlight-text {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.property-name {
+  color: #007bff;
+  font-weight: 700;
+}
+
+/* 2. Symmetrical & Concise Buttons */
+.booking-actions-row {
+  display: flex;
+  gap: 12px; /* Buttons ke beech ki spacing */
+  margin-top: 30px;
+  align-items: center;
+}
+
+.flex-grow { flex: 2.5; } /* Confirm button thoda bada rakha hai */
+.flex-shrink { flex: 1; }  /* Favourite button thoda concise hai lekin balanced hai */
+
+.btn-main-action {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Confirm Button - Modern Green Gradient */
+.btn-main-action.confirm {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%) !important;
+  color: white;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.btn-main-action.confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+/* Favourite Button (Concise Styling) */
+.flex-shrink button {
+  width: 100%;
+  height: 55px; /* Confirm button ke height ke barabar */
+  background: #ffffff !important;
+  border: 2px solid #ff385c !important;
+  color: #ff385c !important;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Text ko wrap hone se rokega */
+}
+
+.flex-shrink button:hover {
+  background: #fff1f3 !important;
+  transform: translateY(-2px);
+}
+
+/* --- 3. ❤️ HEART ICON (WISHLIST) --- */
+.wishlist-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.heart-btn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.heart-btn i {
+  font-size: 18px;
+  color: #4b5563; /* Khali heart color */
+  transition: all 0.3s ease;
+}
+
+.heart-btn:hover {
+  transform: scale(1.15);
+  background: white !important;
+}
+
+.heart-btn:hover i {
+  color: #ff385c; /* Hover par Airbnb Pink */
+}
+
+/* Jab favourite active ho (Optional: If you add 'active' class via JS) */
+.heart-btn.active i {
+  color: #ff385c !important;
+  font-weight: 900;
+}
+/* Stars ko Yellow/Gold karne ke liye */
+.star-icon {
+  color: #d1d1d1; /* Khali star ka rang (Light Gray) */
+  font-size: 1.1rem;
+}
+
+.star-icon.active {
+  color: #FFD700 !important; /* Bhare hue star ka rang (Gold/Yellow) */
+  text-shadow: 0 0 2px rgba(255, 215, 0, 0.4);
+}
+
+/* Rating number (4/5) ki styling */
+.rating-display-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Card ke andar ke text ko thoda saaf karne ke liye */
+.guest-comment {
+  font-style: italic;
+  color: #333;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Container ko align karne ke liye */
+.review-user-row {
+  display: flex;
+  align-items: center; /* Avatar aur text ko center align karega */
+  margin-bottom: 15px;
+}
+
+/* Naam ko bold aur bada karne ke liye */
+.user-fullname {
+  display: block; /* Agli line status ke liye chhodega */
+  font-size: 1.1rem;
+  font-weight: 800 !important; /* Extra bold look */
+  color: #1a1a1a; /* Thoda dark color readability ke liye */
+  margin-bottom: 2px;
+}
+
+/* Verified Status styling */
+.review-status {
+  display: block;
+  font-size: 0.85rem;
+  color: #717171;
+  font-weight: 500;
+}
+
+/* User Meta Data gap */
+.user-meta-data {
+  margin-left: 14px;
+  display: flex;
+  flex-direction: column;
+}

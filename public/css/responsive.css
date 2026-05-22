@@ -1,0 +1,452 @@
+@media (max-width: 768px) {
+    /* 1. Main Navbar ko Column mein badlein */
+    .top-navbar nav {
+      flex-direction: column; /* Sab kuch ek ke niche ek aane ke liye */
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+    }
+  
+    /* 2. Airbnb Logo ko sabse upar aur center mein */
+    .nav-item.logo:first-child {
+      margin-right: 0;
+      order: 1; /* Sequence number 1 */
+    }
+  
+    /* 3. StayFinder ko uske niche */
+    .logo {
+      margin-right: 0;
+      order: 2; /* Sequence number 2 */
+      font-size: 22px;
+    }
+  
+    /* 4. Search Bar ko sabse niche */
+    .search-form {
+      margin-right: 0;
+      order: 3; /* Sequence number 3 */
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .search-input {
+      width: 80%; /* Mobile screen ke hisab se adjust karein */
+    }
+  
+    /* 5. Menu Icon (Three lines) ko right side mein position karna */
+    .menu-icon {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 20px; /* Airbnb logo ke side mein top right par rahega */
+      font-size: 24px;
+      cursor: pointer;
+    }
+  
+    @media (max-width: 768px) {
+        /* Default menu hide rahega */
+        .nav-right {
+          display: none; 
+          flex-direction: column;
+          width: 100%;
+          background-color: white;
+          position: absolute;
+          top: 100%; /* Header ke bilkul niche khulega */
+          left: 0;
+          padding: 20px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          z-index: 999;
+        }
+      
+        /* JAB JAVASCRIPT 'ACTIVE' CLASS ADD KAREGI TAB YE DIKHEGA */
+        .nav-right.active {
+          display: flex !important;
+        }
+     
+      }
+      @media (max-width: 768px) {
+        /* 1. Main Container ki padding kam karein */
+        .detail-container {
+            padding: 10px !important;
+            margin-top: 20px !important;
+        }
+    
+        /* 2. Card ko Horizontal se Vertical (Ek ke niche ek) karein */
+        .home-main-card {
+            display: flex !important;
+            flex-direction: column !important; /* Image upar, Content niche */
+            height: auto !important;
+            border-radius: 15px !important;
+            overflow: hidden !important;
+        }
+    
+        /* 3. Image Wrapper ko full width dein */
+        .hero-image-wrapper {
+            width: 100% !important;
+            height: 250px !important; /* Mobile par height fix rakhein */
+        }
+    
+        .main-home-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+    
+        /* 4. Text Content (Info) ko full width aur sahi padding dein */
+        .home-info-content {
+            width: 100% !important;
+            padding: 20px !important;
+            border-left: none !important; /* Agar desktop par left border tha toh hata dein */
+        }
+    
+        /* 5. Title aur Location ko thoda chota karein */
+        .house-title {
+            font-size: 22px !important;
+            margin-bottom: 5px !important;
+        }
+    
+        .location-subtext {
+            font-size: 14px !important;
+        }
+    
+        /* 6. Booking Button ko Full Width aur Sundar banayein */
+        .booking-actions-row {
+            width: 100% !important;
+            margin-top: 20px !important;
+        }
+    
+        .btn-main-action.confirm {
+            width: 100% !important;
+            padding: 15px !important;
+            font-size: 16px !important;
+            border-radius: 10px !important;
+        }
+    
+        /* 7. Reviews Grid ko Mobile par 1 column karein */
+        .reviews-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important; /* Ek line mein ek review */
+            gap: 15px !important;
+        }
+    }
+    @media (max-width: 768px) {
+        /* 1. Page Title adjustment */
+        .page-title {
+            font-size: 24px !important;
+            padding: 0 15px !important;
+            text-align: center !important;
+        }
+    
+        /* 2. Main Booking Card ko stack karna */
+        .booking-card {
+            margin: 15px !important;
+            padding: 15px !important;
+            border-radius: 12px !important;
+        }
+    
+        /* 3. Header adjustment (Image and Info) */
+        .card-header {
+            flex-direction: column !important; /* Items upar-niche */
+            gap: 15px !important;
+            align-items: flex-start !important;
+        }
+    
+        .header-left {
+            flex-direction: row !important; /* Image aur text saath mein */
+            width: 100% !important;
+        }
+    
+        .property-thumb {
+            width: 80px !important; /* Mobile par choti image */
+            height: 80px !important;
+            border-radius: 10px !important;
+        }
+    
+        .property-info h3 {
+            font-size: 18px !important;
+        }
+    
+        /* 4. Status aur Cancel Button position */
+        .header-right {
+            width: 100% !important;
+            border-top: 1px solid #eee !important;
+            padding-top: 10px !important;
+        }
+    
+        .status-group {
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+    
+        /* 5. Review Grid (Sabse important fix) */
+        .review-grid {
+            grid-template-columns: 1fr !important; /* Mobile par 1 column */
+            gap: 25px !important;
+            margin-top: 20px !important;
+        }
+    
+        /* 6. Form styling for mobile */
+        .styled-form textarea {
+            width: 100% !important;
+            min-height: 80px !important;
+        }
+    
+        .main-submit-btn {
+            width: 100% !important; /* Full width button */
+            padding: 12px !important;
+        }
+    
+        /* 7. AI Analysis Box fix */
+        .ai-analysis-box {
+            padding: 10px !important;
+            font-size: 13px !important;
+        }
+    
+        /* 8. Recent Reviews Scroll Area */
+        .reviews-scroll-area {
+            max-height: 300px !important; /* Mobile par height control */
+            overflow-y: auto !important;
+        }
+    
+        .review-card-item {
+            padding: 10px !important;
+        }
+    
+        .user-info {
+            gap: 8px !important;
+        }
+    
+        .avatar-circle {
+            width: 35px !important;
+            height: 35px !important;
+            font-size: 14px !important;
+        }
+    }
+    @media (max-width: 600px) {
+        /* 1. Container ko 2 columns mein divide karein */
+        .homes-container {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important; /* Ek row mein do barabar columns */
+            gap: 12px !important; /* Cards ke beech ki spacing */
+            padding: 10px !important;
+            width: 100% !important;
+        }
+    
+        /* 2. Card ki width aur height adjust karein */
+        .home-card {
+            width: 100% !important; /* Grid automatically width manage karega */
+            margin: 0 !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            background: #fff !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        }
+    
+        /* 3. Image ko responsive banayein */
+        .image-container {
+            height: 120px !important; /* Mobile par image choti karni padegi */
+        }
+    
+        .image-container img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+    
+        /* 4. Text Content (Name, Price, Location) chota karein */
+        .home-details {
+            padding: 8px !important;
+        }
+    
+        .house-name {
+            font-size: 14px !important; /* Name chota taaki ek line mein aaye */
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+    
+        .location {
+            font-size: 12px !important;
+            margin-bottom: 5px !important;
+        }
+    
+        .price-rating {
+            flex-direction: column !important; /* Price aur Rating upar-niche */
+            align-items: flex-start !important;
+            gap: 2px !important;
+            font-size: 12px !important;
+        }
+    
+        /* 5. Book Now Button ko Full Width karein */
+        .book-btn {
+            width: 100% !important; /* Button ko poori width dein */
+            font-size: 12px !important;
+            padding: 6px 0 !important;
+            margin-top: 8px !important;
+            text-align: center !important;
+        }
+    
+        /* 6. Reserved Overlay adjustment */
+        .overlay h3 {
+            font-size: 14px !important;
+        }
+        .overlay p {
+            display: none !important; /* Mobile par extra text hata dein space bachane ke liye */
+        }
+
+
+      /* --- Final Mobile Responsive Fix --- */
+/* --- Professional Real App Mobile Layout Fix --- */
+@media (max-width: 600px) {
+    /* Main Container: Space aur clarity ke liye padding */
+    .booking-meta-box {
+      display: flex !important;
+      flex-direction: column !important; /* Items ko clean stack karega */
+      align-items: flex-start !important; /* Sab kuch perfect left aligned */
+      gap: 16px !important; /* Premium apps jaisa vertical separation */
+      width: 100% !important;
+      padding: 15px !important; /* Card edges se ample space */
+      box-sizing: border-box !important;
+      background-color: transparent !important; /* Agar background overlap ho */
+    }
+  
+    /* Har Item: Price, Star, Stay ka vertical hierarchy */
+    .meta-item {
+      display: flex !important;
+      align-items: center !important; /* Icon aur text perfectly middle me centered */
+      width: 100% !important;
+      font-size: 14px !important;
+      margin: 0 !important;
+    }
+  
+    /* Icons: Pure grid alignment ke liye fixed placement */
+    .meta-item i {
+      width: 24px !important; /* Thoda zyada spatial grid */
+      height: 24px !important;
+      line-height: 24px !important;
+      text-align: center !important;
+      margin-right: 12px !important; /* Text se healthy separation */
+      font-size: 16px !important;
+      color: #9d5023 !important; /* Modern app grayscale icons */
+    }
+   
+  
+    /* STAY section specifically: Ek hi line me fit karne ke liye spacing */
+    .stay-item {
+      flex-wrap: wrap !important;
+      color: #222 !important;
+      font-weight: 500 !important;  /* Chhoti screen pe flexibility */
+    }
+  
+    .stay-dates {
+      display: inline-block !important;
+      font-weight: 600 !important; /* Real app style subtle bolding */
+      color: #222 !important;
+    }
+  
+    /* "Completed" status badge (optional, if you use it): Better professional appearance */
+    .meta-item .status-completed {
+      background-color: #d1fae5 !important;
+      color: #065f46 !important;
+      border-radius: 999px !important;
+      padding: 4px 10px !important;
+      font-weight: 600 !important;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+    }
+    @media (max-width: 768px) {
+        /* 1. Main Container aur Header */
+        .booking-container {
+            padding: 15px !important;
+            margin-top: 10px !important;
+        }
+    
+        .booking-header h1 {
+            font-size: 24px !important; /* Title thoda chota mobile ke liye */
+            text-align: center !important;
+        }
+    
+        .header-subtitle {
+            font-size: 14px !important;
+            text-align: center !important;
+        }
+    
+        /* 2. Content Layout (Horizontal to Vertical) */
+        .main-content {
+            display: flex !important;
+            flex-direction: column !important; /* Image upar, Price niche */
+            gap: 20px !important;
+        }
+    
+        /* 3. Left Section (Image & Details) */
+        .left-section {
+            width: 100% !important;
+        }
+    
+        .property-image {
+            width: 100% !important;
+            height: 220px !important; /* Height fix taaki screen zyada na bhare */
+            border-radius: 15px !important;
+            object-fit: cover !important;
+        }
+    
+        .property-features {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important; /* Features ko side-by-side karein */
+            gap: 10px !important;
+            margin-top: 15px !important;
+        }
+    
+        .feature-item {
+            font-size: 13px !important;
+        }
+    
+        /* 4. Price Sidebar (Sabse important fix) */
+        .price-sidebar {
+            width: 100% !important; /* Full width mobile par */
+            position: static !important; /* Agar desktop par sticky tha toh hatayein */
+            padding: 20px !important;
+            border-radius: 15px !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+            background: #fff !important;
+        }
+    
+        .price-item {
+            font-size: 15px !important;
+            margin-bottom: 10px !important;
+        }
+    
+        .total-box {
+            font-size: 18px !important;
+            margin-top: 15px !important;
+            padding-top: 10px !important;
+        }
+    
+        /* 5. Payment Button */
+        .confirm-btn {
+            width: 100% !important; /* Button ko bada karein */
+            padding: 15px !important;
+            font-size: 16px !important;
+            margin-top: 15px !important;
+        }
+    
+        .secure-payment {
+            justify-content: center !important;
+            font-size: 12px !important;
+            margin-top: 10px !important;
+        }
+    }
+  }
+  

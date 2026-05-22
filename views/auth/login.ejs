@@ -1,0 +1,41 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/login.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+
+    <div class="main-login-area">
+        <div class="login-card">
+            <h2>Welcome Back</h2>
+            
+            <form action="/login" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                <% if ( typeof errors !== 'undefined' && errors && errors.length > 0) { %>
+                    <div class="error-container">
+                        <div class="error-header">
+                            <i class="ri-error-warning-line"></i> Error!
+                        </div>
+                        <ul class="error-list">
+                            <% errors.forEach(error => { %>
+                                <li><%= error %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+                <input type="text" name="email" placeholder="Enter Your Email" 
+                value="<%= oldInput.email ? oldInput.email: '' %>"required />
+                <input type="password" name="password" placeholder="Enter Your Password" required />
+                
+                <input type="submit" value="Sign In" />
+            </form>
+
+            <div class="footer-text">
+                Don't have an account? <a href="/signup">Sign up now</a>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
