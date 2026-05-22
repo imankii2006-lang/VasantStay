@@ -14,5 +14,3 @@ yarn-debug.log*
 yarn-error.log*
 
 # Uploads (Agar user images locally save ho rahi hain)
-public/uploads/
-uploads/
