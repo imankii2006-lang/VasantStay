@@ -409,13 +409,11 @@ if (word === "rating") {
       // 5. 🔥 Overlap Logic (Sirf valid dates ke liye hi chalega)
       const existingBooking = await Booking.findOne({
           homeId: homeId,
-          $or: [
-              {
-                  checkIn: { $lt: new Date(checkOut) },
-                  checkOut: { $gt: new Date(checkIn) }
-              }
-          ]
-      });
+          status:"Confirmed",
+          checkIn: { $lt: new Date(checkOut) },
+          checkOut: { $gt: new Date(checkIn) }
+            
+        });
   
       if (existingBooking) {
           return res.render('store/ConfirmBooking', { 
