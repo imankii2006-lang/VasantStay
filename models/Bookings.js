@@ -6,7 +6,7 @@ const bookingSchema = new mongoose.Schema({
   amount: Number,
   paymentId: String,
   orderId: String,
-  status: { type: String, default: "completed" },
+  status: { type: String, default: "Confirmed" },
   checkIn:{
     type:Date,
     required:true
